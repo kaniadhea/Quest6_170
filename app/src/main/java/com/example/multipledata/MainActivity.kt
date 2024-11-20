@@ -22,7 +22,6 @@ class MainActivity : ComponentActivity() {
             MultipleDataTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     MahasiswaApp(
-                        modifier = Modifier
                     )
                 }
             }

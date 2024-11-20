@@ -6,6 +6,7 @@ object MataKuliah {
         "Pengembangan Aplikasi Web Framework",
         "Prototyping",
         "Aplikasi Multimedia",
-
+        "Kecerdasan Buatan",
+        "Computer Vission"
     )
 }
