@@ -36,15 +36,17 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.multipledata.R
 
-@Preview (showBackground = true)
-@Composable
-fun MahasiswaFormView(){
 
+@Composable
+fun MahasiswaFormView(
+    onSubmitButtonClicked: (MutableList<String>) -> Unit,
+    onBackButtonClicked: () -> Unit
+){
     var nama by remember { mutableStateOf("") }
     var nim by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
 
-
+    var lisData : MutableList<String> = mutableListOf(nim, nama, email)
 
     Column (modifier = Modifier
         .fillMaxSize()
@@ -52,9 +54,10 @@ fun MahasiswaFormView(){
             color = colorResource(
                 id = R.color.primary
             )
-        )
+        ), horizontalAlignment = Alignment.CenterHorizontally
 
     ){
+
        Row (modifier = Modifier
            .padding(40.dp), //membuat logo dan text umy nya berjarak dari layar
            verticalAlignment = Alignment.CenterVertically
