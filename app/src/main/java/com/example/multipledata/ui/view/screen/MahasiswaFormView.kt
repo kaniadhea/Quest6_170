@@ -57,7 +57,7 @@ fun MahasiswaFormView(
         ), horizontalAlignment = Alignment.CenterHorizontally
 
     ){
-
+        Spacer(modifier = Modifier.padding(16.dp))
        Row (modifier = Modifier
            .padding(40.dp), //membuat logo dan text umy nya berjarak dari layar
            verticalAlignment = Alignment.CenterVertically
@@ -86,16 +86,16 @@ fun MahasiswaFormView(
        }
 
         Box(modifier = Modifier
-            .fillMaxSize()
             .background(color = Color.White,
                 shape = RoundedCornerShape( //buat padding nya melengkung
                     topEnd = 15.dp,
                     topStart = 15.dp
                 )
             )
+            .fillMaxSize(),
         ){
             Column (modifier = Modifier
-                .fillMaxWidth()
+                .fillMaxSize()
                 .padding(16.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ){

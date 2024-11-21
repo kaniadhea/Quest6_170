@@ -23,6 +23,7 @@ enum class Halaman{
 @Composable
 
 fun MahasiswaApp(
+    modifier: Modifier = Modifier,
     mahasiswaViewModel: MahasiswaViewModel = viewModel(),
     navController : NavHostController = rememberNavController()
 ) {
