@@ -11,6 +11,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.multipledata.ui.view.screen.MahasiswaFormView
 import com.example.multipledata.ui.view.screen.SplashView
 import com.example.multipledata.ui.view.viewmodel.MahasiswaViewModel
 
@@ -35,8 +36,20 @@ fun MahasiswaApp(
         modifier = Modifier.padding()
     ) {
         composable(route = Halaman.Splash.name){
-            SplashView(onMulai)
+            SplashView(onMulaiButton = {
+                navController.navigate(
+                    Halaman.Mahasiswa.name
+                )
+            })
         }
-    } //belum selesai
+        composable(route = Halaman.Mahasiswa.name) {
+            MahasiswaFormView(
+                onSubmitButtonClicked = {
+                    mahasiswaViewModel.saveDataMahasiswa(it)
+                    navController.navigate(Halaman.Matakuliah.name)
+                }
+            ) { }
+        }
+    }
 
 }

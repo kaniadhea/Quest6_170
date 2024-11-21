@@ -99,8 +99,14 @@ fun MahasiswaFormView(
                 .padding(16.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ){
-                Text( text = "Masukkan Data Kamu", fontWeight = FontWeight.Bold, fontSize = 19.sp)
-                Text(text = "Isi Sesuai data yang kamu daftarkan", fontWeight = FontWeight.Light)
+                Text( text = "Masukkan Data Kamu",
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 19.sp
+                )
+                Text(text = "Isi Sesuai data yang kamu daftarkan",
+                    fontWeight = FontWeight.Light,
+                    fontSize = 19.sp
+                )
 
                 OutlinedTextField(
                     modifier = Modifier.fillMaxWidth(),
