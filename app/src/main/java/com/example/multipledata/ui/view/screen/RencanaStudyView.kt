@@ -2,6 +2,7 @@ package com.example.multipledata.ui.view.screen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -12,6 +13,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Notifications
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -123,7 +125,22 @@ fun RencanaStudyView(
                     }
                 )
 
-                Spacer()
+                Spacer(modifier = Modifier.padding(8.dp))
+                HorizontalDivider()
+                Spacer(modifier = Modifier.padding(8.dp))
+
+                Text(
+                    text = "Silahkan pilih Kelas dari mata kuliah yang anda inginkan",
+                    fontSize = 12.sp,
+                    fontWeight = FontWeight.Light
+                )
+
+                Spacer(modifier = Modifier.padding(8.dp))
+
+                Row (
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceEvenly
+                ){  }
             }
         }
     }
