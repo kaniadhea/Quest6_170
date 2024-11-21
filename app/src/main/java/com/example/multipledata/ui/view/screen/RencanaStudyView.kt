@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material3.Icon
@@ -81,6 +82,33 @@ fun RencanaStudyView(
                     imageVector = Icons.Filled.Notifications,
                     contentDescription = "",
                     tint = Color.White
+                )
+            }
+        }
+        Box(modifier = Modifier
+            .background(
+                color = Color.White,
+                shape = RoundedCornerShape(
+                    topEnd = 15.dp,
+                    topStart = 15.dp
+                )
+            )
+            .fillMaxWidth()
+        ){
+            Column (
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding()
+            ){
+                Text(
+                    text = "Pilih Mata Kuliah Pemiinatan",
+                    fontWeight = FontWeight.Bold
+                )
+
+                Text(
+                    text = "Silahkan pilih mata kuliah yang anda inginkan",
+                    fontSize = 12.sp,
+                    fontWeight = FontWeight.Light
                 )
             }
         }
