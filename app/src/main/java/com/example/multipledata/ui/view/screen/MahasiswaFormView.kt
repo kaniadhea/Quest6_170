@@ -57,7 +57,7 @@ fun MahasiswaFormView(
         ), horizontalAlignment = Alignment.CenterHorizontally
 
     ){
-        Spacer(modifier = Modifier.padding(16.dp))
+
        Row (modifier = Modifier
            .padding(40.dp), //membuat logo dan text umy nya berjarak dari layar
            verticalAlignment = Alignment.CenterVertically
@@ -162,11 +162,11 @@ fun MahasiswaFormView(
                     horizontalArrangement = Arrangement.SpaceEvenly
 
                 ){
-                    Button(onClick = {}) {
+                    Button(onClick = {onBackButtonClicked()}) {
                         Text(text = "Kembali")
                     }
 
-                    Button(onClick = {}) {
+                    Button(onClick = {onSubmitButtonClicked(lisData)}) {
                         Text(text = "Simpan")
                     }
 

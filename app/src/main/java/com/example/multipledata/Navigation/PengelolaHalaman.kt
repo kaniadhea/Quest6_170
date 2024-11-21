@@ -66,6 +66,11 @@ fun MahasiswaApp(
                 }
             )
         }
+        composable(route = Halaman.TampilKrs.name){
+            TampilView(
+                
+            )
+        }
 
     }
 
