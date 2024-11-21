@@ -19,16 +19,17 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.multipledata.R
 
-@Preview(showBackground = true)
+
 @Composable
 
-fun SplashView(){
+fun SplashView(
+    onMulaiButton : () -> Unit,
+){
     Column(modifier = Modifier
         .fillMaxSize()
         .background(color = colorResource(id = R.color.primary)),
         verticalArrangement = Arrangement.Center, //untuk mengatur logo umy agar kebawah
         horizontalAlignment = Alignment.CenterHorizontally //untuk mengatur logo nya agar kebawah
-
 
     ){
         Image(painter = painterResource(R.drawable.umy),
