@@ -15,11 +15,14 @@ import com.example.multipledata.ui.view.screen.MahasiswaFormView
 import com.example.multipledata.ui.view.screen.RencanaStudyView
 import com.example.multipledata.ui.view.screen.SplashView
 import com.example.multipledata.ui.view.viewmodel.MahasiswaViewModel
+import com.example.multipledata.ui.view.viewmodel.RencanaStudyViewModel
 
 
 enum class Halaman{
     Splash,
-    Mahasiswa
+    Mahasiswa,
+    MataKuliah,
+    TampilKrs
 }
 
 @Composable
@@ -27,6 +30,7 @@ enum class Halaman{
 fun MahasiswaApp(
     modifier: Modifier = Modifier,
     mahasiswaViewModel: MahasiswaViewModel = viewModel(),
+    krsViewModel: RencanaStudyViewModel = viewModel(),
     RencanaStudyViewModel : RencanaStudyViewModel = viewModel(),
     navController : NavHostController = rememberNavController()
 ) {
@@ -50,15 +54,15 @@ fun MahasiswaApp(
             MahasiswaFormView(
                 onSubmitButtonClicked = {
                     mahasiswaViewModel.saveDataMahasiswa(it)
-                    navController.navigate(Halaman.Matakuliah.name)},
+                    navController.navigate(Halaman.MataKuliah.name)},
                 onBackButtonClicked = {navController.popBackStack()}
             )
         }
-        composable(route = Halaman.Matakuliah.name) {
+        composable(route = Halaman.MataKuliah.name) {
             RencanaStudyView(
                 mahasiswa = mahasiswaUiState,
                 onSubmitButtonClicked = {
-                    RencanaStudyViewModel.saveDataKRS(it)
+                    krsViewModel.saveDataKRS(it)
                 navController.navigate(Halaman.TampilKrs.name)
                                         },
                 onBackButtonClicked = {
@@ -68,7 +72,16 @@ fun MahasiswaApp(
         }
         composable(route = Halaman.TampilKrs.name){
             TampilView(
-                
+                mahasiswa = mahasiswaUiState,
+                krs = rencanaStudiUiState,
+
+                onbuttonClicked = {
+                    navController.popBackStack()
+                },
+                onResetButtonClicked = {
+                    navController.navigate(Halaman.Splash.name)
+                }
+
             )
         }
 
