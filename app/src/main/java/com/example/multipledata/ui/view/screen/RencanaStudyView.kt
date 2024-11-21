@@ -13,8 +13,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Notifications
+import androidx.compose.material3.Button
+import androidx.compose.material3.Checkbox
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
+import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -31,6 +34,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.multipledata.R
 import com.example.multipledata.data.MataKuliah
+import com.example.multipledata.data.RuangKelas
 import com.example.multipledata.model.Mahasiswa
 import com.example.multipledata.ui.widget.DynamicSelectTextField
 
@@ -140,8 +144,49 @@ fun RencanaStudyView(
                 Row (
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceEvenly
-                ){  }
+                ){
+                    RuangKelas.kelas.forEach{ data ->
+                        Row (verticalAlignment = Alignment.CenterVertically)
+
+                        RadioButton(
+                            selected = pilihanKelas ==data,
+                            onClick = {pilihanKelas = data}
+                        )
+                        Text(data)
+                    }
+                }
             }
+
+            Spacer(modifier = Modifier.padding(8.dp))
+            HorizontalDivider()
+            Spacer(modifier = Modifier.padding(8.dp))
+
+            Text(text = "Klausul persetujuan Mahasiswa", fontWeight = FontWeight.Bold)
+
+            Row (verticalAlignment = Alignment.CenterVertically) {
+                Checkbox(
+                    checked = checked,
+                    onCheckedChange = { checked = it},
+                    enabled = chosenDropdown.isNotBlank() && pilihanKelas.isNotBlank()
+                )
+                Text(
+                    text = "Saya Menyetujui setiap pernyataan yang ada tanpa ada paksaan dari pihak manapun.",
+                    fontWeight = FontWeight.Light,
+                    fontSize = 10.sp
+                )
+            }
+            Spacer(modifier = Modifier.padding(8.dp))
+
+            Row (modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceEvenly
+            ){
+                Button(onClick = {onBackButtonClicked()}) {
+                    Text(text = "Kembali")
+                }
+
+            }
+
+
         }
     }
 }
