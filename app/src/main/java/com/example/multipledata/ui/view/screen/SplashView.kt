@@ -21,33 +21,33 @@ import com.example.multipledata.R
 
 
 @Composable
-
 fun SplashView(
-    onMulaiButton : () -> Unit,
-){
-    Column(modifier = Modifier
-        .fillMaxSize()
-        .background(color = colorResource(id = R.color.primary)),
-        verticalArrangement = Arrangement.Center, //untuk mengatur logo umy agar kebawah
-        horizontalAlignment = Alignment.CenterHorizontally //untuk mengatur logo nya agar kebawah
-
-    ){
-        Image(painter = painterResource(R.drawable.umy),
+    onMulaiButton: () -> Unit,
+) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(color = colorResource(id = R.color.primary)),
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+        Image(
+            painter = painterResource(R.drawable.umy),
             contentDescription = "",
-            modifier = Modifier.size(150.dp) //mengatur ukuran logo
+            modifier = Modifier.size(150.dp)
         )
-
         Button(
             onClick = {
-                onMulaiButton
+                onMulaiButton() // Pastikan fungsi dipanggil
             },
             modifier = Modifier
-                .fillMaxSize()
-                .padding(32.dp)
+                .fillMaxWidth()
+                .padding(10.dp)
         ) {
             Text(text = "Mulai")
         }
     }
 }
+
 
 //viewmodel untuk menghubungkan antar view dengan model
